@@ -420,7 +420,7 @@ int InitSkin(skstruct *sk, int /*unused*/, char font) {
 		InitDST(&sk->dst_EVENT_LOADINGBG[i]);
 	}
 
-	for (int i = 0; i < 2; i++) {
+	for (int i = 0; i < 4; i++) {
 		InitSRC(&sk->src_HITERROR[i]);
 		InitDST(&sk->dst_HITERROR[i]);
 	}
@@ -1848,14 +1848,14 @@ int ReadSkin(skstruct *sk,CSTR FilePath, int unused, int skin_num, SkinUser* sku
 					}
 					case "#SRC_HITERROR"_hash: {
 						SplitCSV(fBuf, &csv, ",");
-						if (CheckIndexRange(csv.val[1], 0, 1, line, pFbuf)) {
+						if (CheckIndexRange(csv.val[1], 0, 3, line, pFbuf)) {
 							ReadSRC(&sk->src_HITERROR[csv.val[1]], &csv, sk);
 						}
 						break;
 					}
 					case "#DST_HITERROR"_hash: {
 						SplitCSV(fBuf, &csv, ",");
-						if (CheckIndexRange(csv.val[1], 0, 1, line, pFbuf)) {
+						if (CheckIndexRange(csv.val[1], 0, 3, line, pFbuf)) {
 							ReadDST(&sk->dst_HITERROR[csv.val[1]], &csv, tSkin_num, line);
 						}
 						break;

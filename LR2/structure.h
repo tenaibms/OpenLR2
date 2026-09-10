@@ -1012,8 +1012,8 @@ struct skstruct {
 	int event_FADEOUT[10]{};
 	struct DSTstruct dst_EVENT_LOADINGBG[5]{};
 	int horizontal{};
-	struct SRCstruct src_HITERROR[2] {};
-	struct DSTstruct dst_HITERROR[2] {};
+	struct SRCstruct src_HITERROR[4] {};
+	struct DSTstruct dst_HITERROR[4] {};
 	struct SRCstruct src_HITERROR_CENTER {};
 	struct DSTstruct dst_HITERROR_CENTER {};
 	struct SRCstruct src_HITERROR_PGREAT {};
@@ -1347,6 +1347,10 @@ struct JudgeData {
 struct HITERRORDATA {
 	EMA ema;
 	CircularBuffer<JudgeData> notes;
+	EMA ema_dp_p1;
+	CircularBuffer<JudgeData> notes_dp_p1;
+	EMA ema_dp_p2;
+	CircularBuffer<JudgeData> notes_dp_p2;
 };
 
 struct PLAYERSTATUS {
